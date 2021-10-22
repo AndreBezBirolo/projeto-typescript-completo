@@ -15,9 +15,12 @@ export class NegociacaoController {
     adiciona() {
         const negociacao = this.criaNegociacao();
         this.negociacoes.adiciona(negociacao);
+        this.limparForm();
+        this.atualizaView();
+    }
+    atualizaView() {
         this.negociacoesView.update(this.negociacoes);
         this.mensagemView.update('Negociação cadastrada com sucesso!');
-        this.limparForm();
     }
     criaNegociacao() {
         const exp = /-/g;

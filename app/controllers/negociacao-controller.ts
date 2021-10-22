@@ -21,9 +21,13 @@ export class NegociacaoController {
     adiciona(): void {
         const negociacao = this.criaNegociacao();
         this.negociacoes.adiciona(negociacao);
+        this.limparForm();
+        this.atualizaView();
+    }
+
+    private atualizaView(): void {
         this.negociacoesView.update(this.negociacoes);
         this.mensagemView.update('Negociação cadastrada com sucesso!');
-        this.limparForm();
     }
 
     criaNegociacao(): Negociacao {
