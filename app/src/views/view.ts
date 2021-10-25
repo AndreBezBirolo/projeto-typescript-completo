@@ -4,7 +4,7 @@ export abstract class View<T> {
     private escapar = false;
 
     constructor(seletor: string, escapar?: boolean) {
-        const elemento = document.querySelector(seletor);
+        const elemento = document.getElementById(seletor);
         if (elemento) {
             this.elemento = elemento as HTMLElement;
         } else {
@@ -21,5 +21,6 @@ export abstract class View<T> {
             template = template.replace(/<script>[\s\S]*?<\/script>/g, '');
         }
         this.elemento.innerHTML = template;
+        const t2 = performance.now();
     }
 }

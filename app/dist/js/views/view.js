@@ -1,7 +1,7 @@
 export class View {
     constructor(seletor, escapar) {
         this.escapar = false;
-        const elemento = document.querySelector(seletor);
+        const elemento = document.getElementById(seletor);
         if (elemento) {
             this.elemento = elemento;
         }
@@ -17,5 +17,6 @@ export class View {
             template = template.replace(/<script>[\s\S]*?<\/script>/g, '');
         }
         this.elemento.innerHTML = template;
+        const t2 = performance.now();
     }
 }
