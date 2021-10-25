@@ -3,7 +3,8 @@
     "strictPropertyInitialization": false,
     "strict": true,
     "compilerOptions": {
-        "outDir": "dist/js",
+        "baseUrl": "./app",
+        "outDir": "app/dist/js",
         "target": "ES6",
         "noEmitOnError": true,
         "noImplicitAny": true,
@@ -11,6 +12,6 @@
         "strictNullChecks": true
     },
     "include": [
-        "app/**/*"
+        "app/src/**/*"
     ]
 }
