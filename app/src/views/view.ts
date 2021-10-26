@@ -21,6 +21,5 @@ export abstract class View<T> {
             template = template.replace(/<script>[\s\S]*?<\/script>/g, '');
         }
         this.elemento.innerHTML = template;
-        const t2 = performance.now();
     }
 }
