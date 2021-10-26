@@ -1,3 +1,4 @@
+import { NegociacaoAPI } from './../interfaces/negociacao-api.js';
 import { NegociacoesView } from './../views/negociacoes-view.js';
 import { Negociacoes } from './../models/negociacoes.js';
 import { Negociacao } from "../models/negociacao.js";
@@ -42,12 +43,12 @@ export class NegociacaoController {
         let data = fetch('http://localhost:8080/dados');
         data
         .then(res => res.json())
-        .then((dados: any[] ) => {
+        .then((dados: NegociacaoAPI[] ) => {
             dados.forEach(dado => {
                 this.negociacoes.adiciona(new Negociacao(
                     new Date(),
                     dado.vezes,
-                    dado.montante
+                    dado.montante,
                 ));
             });
             this.negociacoesView.update(this.negociacoes);
