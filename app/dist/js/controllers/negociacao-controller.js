@@ -29,6 +29,17 @@ export class NegociacaoController {
         this.atualizaView();
         this.limparForm();
     }
+    importaDados() {
+        let data = fetch('http://localhost:8080/dados');
+        data
+            .then(res => res.json())
+            .then((dados) => {
+            dados.forEach(dado => {
+                this.negociacoes.adiciona(new Negociacao(new Date(), dado.vezes, dado.montante));
+            });
+            this.negociacoesView.update(this.negociacoes);
+        });
+    }
     atualizaView() {
         this.negociacoesView.update(this.negociacoes);
         this.mensagemView.update('Negociação cadastrada com sucesso!');
