@@ -8,6 +8,14 @@ export class Negociacao {
         const data = new Date(this._data.getTime());
         return data;
     }
+    paraTexto() {
+        return `
+            Data: ${this._data}
+            Quantidade: ${this.quantidade}
+            Valor: ${this.valor}
+            Volume: ${this.volume}
+            `;
+    }
     get volume() {
         return this.quantidade * this.valor;
     }

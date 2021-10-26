@@ -12,6 +12,15 @@ export class Negociacao {
         return data;
     }
 
+    public paraTexto (): string {
+        return `
+            Data: ${this._data}
+            Quantidade: ${this.quantidade}
+            Valor: ${this.valor}
+            Volume: ${this.volume}
+            `
+    }
+
     get volume(): number {
         return this.quantidade * this.valor
     }
