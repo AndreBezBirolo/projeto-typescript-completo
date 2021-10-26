@@ -46,6 +46,15 @@ export class NegociacaoController {
         this.negociacaoService
         .obterNegociacoes()
         .then(negociacoes => {
+            return negociacoes.filter(negociacao => {
+                return !this.negociacoes
+                    .lista()
+                    .some(
+                        negociacaoExistente => negociacao.ehIgual(negociacaoExistente)
+                    );
+            })
+        })
+        .then(negociacoes => {
             negociacoes.forEach(negociacao => this.negociacoes.adiciona(negociacao));
             this.negociacoesView.update(this.negociacoes);
         })
@@ -66,4 +75,5 @@ export class NegociacaoController {
         this.inputValor.value = '';
         this.inputData.focus();
     }
+
 }
