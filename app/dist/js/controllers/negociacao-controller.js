@@ -12,6 +12,7 @@ import { DiaDaSemana } from '../enums/dias-da-semana.js';
 import { LogarTempoDeExecucao } from '../decorators/logar-tempo-de-execucao.js';
 import { domInject } from '../decorators/dom-injector.js';
 import { NegociacoesService } from '../services/negociacoes-service.js';
+import { imprimir } from '../utils/imprimir.js';
 export class NegociacaoController {
     constructor() {
         this.negociacoes = new Negociacoes();
@@ -28,6 +29,7 @@ export class NegociacaoController {
             return;
         }
         this.negociacoes.adiciona(negociacao);
+        imprimir(negociacao, this.negociacoes);
         this.atualizaView();
         this.limparForm();
     }
